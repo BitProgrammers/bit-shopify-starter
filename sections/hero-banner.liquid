@@ -1,0 +1,239 @@
+{%- style -%}
+  .hero--{{ section.id }} {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: {{ section.settings.content_alignment }};
+    min-height: {{ section.settings.desktop_height }}px;
+    overflow: hidden;
+  }
+
+  .hero__image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero__image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #000000;
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 2;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    padding: 2rem;
+    text-align: {{ section.settings.text_alignment }};
+    color: {{ section.settings.text_color }};
+  }
+
+  @media screen and (max-width: 768px) {
+    .hero--{{ section.id }} {
+      min-height: {{ section.settings.mobile_height }}px;
+    }
+    .hero__image-wrapper.desktop-only {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    .hero__image-wrapper.mobile-only {
+      display: none;
+    }
+  }
+{%- endstyle -%}
+
+<section class="hero hero--{{ section.id }}">
+  {%- if section.settings.image_desktop != blank -%}
+    <div class="hero__image-wrapper {% if section.settings.image_mobile != blank %}desktop-only{% endif %}">
+      {{ section.settings.image_desktop | image_url: width: 2000 | image_tag: 
+        loading: 'eager', 
+        fetchpriority: 'high',
+        sizes: '100vw',
+        widths: '375, 550, 750, 1100, 1500, 1780, 2000'
+      }}
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.image_mobile != blank -%}
+    <div class="hero__image-wrapper mobile-only">
+      {{ section.settings.image_mobile | image_url: width: 800 | image_tag: 
+        loading: 'eager', 
+        fetchpriority: 'high',
+        sizes: '100vw',
+        widths: '375, 550, 750'
+      }}
+    </div>
+  {%- endif -%}
+
+  <div class="hero__overlay"></div>
+
+  <div class="hero__content">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'heading' -%}
+          <h1 class="hero__heading h1" {{ block.shopify_attributes }}>
+            {{ block.settings.heading | escape }}
+          </h1>
+        {%- when 'text' -%}
+          <div class="hero__text" {{ block.shopify_attributes }}>
+            {{ block.settings.text }}
+          </div>
+        {%- when 'button' -%}
+          {%- if block.settings.button_label != blank -%}
+            <a href="{{ block.settings.button_link }}" class="button button--primary" {{ block.shopify_attributes }}>
+              {{ block.settings.button_label | escape }}
+            </a>
+          {%- endif -%}
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Background Image (Optional)"
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 400,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "label": "Desktop Height",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 300,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Mobile Height",
+      "default": 400
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 30
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content Alignment (Horizontal)",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text",
+          "default": "Welcome to Bit Programmers"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description text",
+          "default": "<p>Build high-performance storefronts.</p>"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "blocks": [
+        { "type": "heading" },
+        { "type": "text" },
+        { "type": "button" }
+      ]
+    }
+  ]
+}
+{% endschema %}
