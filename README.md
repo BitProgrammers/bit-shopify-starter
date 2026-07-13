@@ -39,16 +39,20 @@ A production-ready Shopify Online Store 2.0 starter theme optimized for high-per
 ## Folder Structure
 
 ```text
-├── .github/             # CI/CD workflows and PR templates
-├── assets/              # Compiled CSS, JS, and image files
-├── config/              # Theme settings schema and current data
-├── layout/              # Base layout files (e.g., theme.liquid)
+├── .github/             # GitHub workflows, issue templates, and contribution guidance
+├── assets/              # Theme styles, scripts, and media files
+├── config/              # Theme configuration and settings data
+├── docs/                # Project documentation and supporting references
+├── layout/              # Base layout files such as theme.liquid
 ├── locales/             # Storefront translation files
-├── sections/            # Reusable structural components
-├── snippets/            # Reusable UI elements (buttons, cards, icons)
-├── templates/           # JSON templates for standard pages
-├── CHANGELOG.md         # Version history tracking
-└── CONTRIBUTING.md      # Internal coding and branching standards
+├── sections/            # Reusable section templates
+├── snippets/            # Reusable UI snippets and components
+├── templates/           # JSON templates for pages and storefront views
+├── CHANGELOG.md         # Version history of the project
+├── LICENSE.md           # Project license information
+├── package.json         # Project scripts and development dependencies
+├── README.md            # Main project documentation
+└── release-notes.md     # Release summary notes
 ```
 
 ## Deployment
