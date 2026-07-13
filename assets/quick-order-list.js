@@ -67,7 +67,7 @@ if (!customElements.get('quick-order-list')) {
 
         this.querySelector('.quick-order-list__contents').addEventListener(
           'keyup',
-          this.handleScrollIntoView.bind(this)
+          this.handleScrollIntoView.bind(this),
         );
 
         this.quickOrderListTable.addEventListener('keydown', this.handleSwitchVariantOnEnter.bind(this));
@@ -364,7 +364,7 @@ if (!customElements.get('quick-order-list')) {
             if (e.code !== 'INVALID') console.error(e);
             this.dispatchCartErrorEvent(
               e.code === 'INVALID' ? e.message : window.cartStrings.error,
-              e.code || 'SERVICE_UNAVAILABLE'
+              e.code || 'SERVICE_UNAVAILABLE',
             );
             linesUpdate?.reject(e);
             this.setErrorMessage(e.code === 'INVALID' ? e.message : window.cartStrings.error);
@@ -408,8 +408,8 @@ if (!customElements.get('quick-order-list')) {
             ? window.quickOrderListStrings.itemRemoved
             : window.quickOrderListStrings.itemsRemoved
           : quantity === 1
-          ? window.quickOrderListStrings.itemAdded
-          : window.quickOrderListStrings.itemsAdded;
+            ? window.quickOrderListStrings.itemAdded
+            : window.quickOrderListStrings.itemsAdded;
 
         messages.forEach((msg) => (msg.innerHTML = textTemplate.replace('[quantity]', absQuantity)));
 
@@ -453,7 +453,7 @@ if (!customElements.get('quick-order-list')) {
           .querySelectorAll('.variant-remove-total .loading__spinner')
           ?.forEach((spinner) => spinner.classList.toggle('hidden', !loading));
       }
-    }
+    },
   );
 }
 
@@ -478,7 +478,7 @@ if (!customElements.get('quick-order-list-remove-all-button')) {
           } else if (this.dataset.action === this.actions.remove) {
             const items = this.quickOrderList.cartVariantsForProduct.reduce(
               (acc, variantId) => ({ ...acc, [variantId]: 0 }),
-              {}
+              {},
             );
 
             this.quickOrderList.updateMultipleQty(items);
@@ -495,6 +495,6 @@ if (!customElements.get('quick-order-list-remove-all-button')) {
           .classList.toggle('hidden', showConfirmation);
         this.quickOrderList.querySelector('.quick-order-list-total__info').classList.toggle('hidden', showInfo);
       }
-    }
+    },
   );
 }

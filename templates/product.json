@@ -95,9 +95,5 @@
       }
     }
   },
-  "order": [
-    "main",
-    "disclosures",
-    "related-products"
-  ]
+  "order": ["main", "disclosures", "related-products"]
 }

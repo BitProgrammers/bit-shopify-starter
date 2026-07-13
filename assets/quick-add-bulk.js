@@ -73,7 +73,7 @@ if (!customElements.get('quick-add-bulk')) {
           () => {
             event.target.setCustomValidity('');
           },
-          { once: true }
+          { once: true },
         );
       }
 
@@ -137,7 +137,7 @@ if (!customElements.get('quick-add-bulk')) {
             if (e.code !== 'INVALID') console.error(e);
             this.dispatchCartErrorEvent(
               e.code === 'INVALID' ? e.message : window.cartStrings.error,
-              e.code || 'SERVICE_UNAVAILABLE'
+              e.code || 'SERVICE_UNAVAILABLE',
             );
             linesUpdate?.reject(e);
             // Commented out for now and will be fixed when BE issue is done https://github.com/Shopify/shopify/issues/440605
@@ -189,7 +189,7 @@ if (!customElements.get('quick-add-bulk')) {
           if (elementToReplace) {
             elementToReplace.innerHTML = this.getSectionInnerHTML(
               parsedState.sections[section.section],
-              section.selector
+              section.selector,
             );
           }
         });
@@ -201,6 +201,6 @@ if (!customElements.get('quick-add-bulk')) {
         this.listenForActiveInput();
         this.listenForKeydown();
       }
-    }
+    },
   );
 }

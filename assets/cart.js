@@ -100,7 +100,7 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
         inputValue,
         event,
         document.activeElement.getAttribute('name'),
-        event.target.dataset.quantityVariantId
+        event.target.dataset.quantityVariantId,
       );
     }
   }
@@ -226,7 +226,7 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
               document.getElementById(section.id);
             elementToReplace.innerHTML = this.getSectionInnerHTML(
               parsedState.sections[section.section],
-              section.selector
+              section.selector,
             );
           });
           const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
@@ -282,7 +282,7 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
         context: 'cart',
         lines: [{ id: lineKey, quantity }],
         promise: deferred.promise,
-      })
+      }),
     );
     return deferred;
   }
@@ -385,11 +385,11 @@ if (!customElements.get('cart-note')) {
                     new CartErrorEvent({
                       error: e.message || 'Note update failed',
                       code: e.code || 'SERVICE_UNAVAILABLE',
-                    })
+                    }),
                   );
                 }
               });
-          }, ON_CHANGE_DEBOUNCE_TIMER)
+          }, ON_CHANGE_DEBOUNCE_TIMER),
         );
       }
 
@@ -405,11 +405,11 @@ if (!customElements.get('cart-note')) {
             context,
             note: newNote,
             promise: deferred.promise,
-          })
+          }),
         );
 
         return deferred;
       }
-    }
+    },
   );
 }

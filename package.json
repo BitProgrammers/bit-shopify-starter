@@ -1,0 +1,25 @@
+{
+  "name": "bit-shopify-starter",
+  "version": "1.0.0",
+  "description": "[![Build status](https://github.com/shopify/dawn/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Shopify/dawn/actions/workflows/ci.yml?query=branch%3Amain)\r [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?color=informational)](/.github/CONTRIBUTING.md)",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"**/*.{liquid,html,css,js,json}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BitProgrammers/bit-shopify-starter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/BitProgrammers/bit-shopify-starter/issues"
+  },
+  "homepage": "https://github.com/BitProgrammers/bit-shopify-starter#readme",
+  "devDependencies": {
+    "@shopify/prettier-plugin-liquid": "^1.10.3",
+    "prettier": "^3.9.5"
+  }
+}

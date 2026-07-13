@@ -85,9 +85,7 @@ function collectCartSections() {
 // makes it throw.
 async function refreshDawnCartUI() {
   const sections = collectCartSections();
-  const sectionsQuery = sections.size
-    ? `?sections=${[...sections.keys()].join(',')}`
-    : '';
+  const sectionsQuery = sections.size ? `?sections=${[...sections.keys()].join(',')}` : '';
   // `routes` is a Dawn global, but don't assume it's defined.
   const cartUrl = (typeof routes !== 'undefined' && routes?.cart_url) || '/cart';
   const url = `${cartUrl}.js${sectionsQuery}`;
@@ -99,9 +97,7 @@ async function refreshDawnCartUI() {
     for (const [id, { mount, extractSelector }] of sections) {
       const html = cartData.sections[id];
       if (!html) continue;
-      const source = new DOMParser()
-        .parseFromString(html, 'text/html')
-        .querySelector(extractSelector);
+      const source = new DOMParser().parseFromString(html, 'text/html').querySelector(extractSelector);
       if (source) mount.replaceChildren(...source.childNodes);
     }
   }
