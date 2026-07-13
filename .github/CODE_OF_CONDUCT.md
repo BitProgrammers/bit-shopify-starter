@@ -1,4 +1,4 @@
-# Code of Conduct for Bit Programmers Shopify Starter Theme (v1.0.0)
+# Code of Conduct for Bit Programmers Shopify Starter Theme
 
 ## Our Pledge
 
