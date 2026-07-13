@@ -4,6 +4,11 @@ All notable changes to the Bit Programmers Shopify Starter Theme will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+### Changed
+- Replaced open-source Dawn README with internal Bit Programmers architectural documentation.
+
+### Removed
+- Deleted legacy Shopify `ci.yml` GitHub Action to prevent pipeline conflicts and server timeouts.
 
 ## [1.0.0] - 2026-07-13
 ### Added
