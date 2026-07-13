@@ -1,5 +1,27 @@
-# OS generated files #
-######################
+# ========================
+# Shopify CLI & Tooling
+# ========================
+.shopify/
+.theme-check-cache/
+
+# ========================
+# Node & NPM
+# ========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ========================
+# Environment Variables
+# ========================
+.env
+.env.*
+!.env.example
+
+# ========================
+# OS Generated Files
+# ========================
 .DS_Store
 .DS_Store?
 ._*
@@ -7,6 +29,19 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-.shopify
-node_modules
+desktop.ini
+
+# ========================
+# IDEs & Editors
+# ========================
+.idea/
+.vscode/settings.json
+*.swp
+*.swo
+
+# ========================
+# Archives
+# ========================
 *.zip
+*.tar
+*.tar.gz
