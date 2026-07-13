@@ -46,7 +46,4 @@ Project maintainers who do not follow or enforce this Code of Conduct in good fa
 
 This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org), version 1.4, available at [https://www.contributor-covenant.org/version/1/4/code-of-conduct.html](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html).  
 
-As adapted for the **Bit Programmers Shopify Starter Theme (v1.0.0)**.
-Copyright © 2026 Bit Programmers. All rights reserved.
-
 For answers to common questions about this code of conduct, see [https://www.contributor-covenant.org/faq](https://www.contributor-covenant.org/faq).
