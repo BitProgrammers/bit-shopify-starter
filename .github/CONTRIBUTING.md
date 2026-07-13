@@ -22,6 +22,5 @@ Code is not subjective; it is mechanically enforced.
 3. **Develop & Format:** Write clean code and run `npm run format` locally.
 4. **Push:** Push your branch to the remote repository.
 5. **Open a PR:** Open a Pull Request against `main` and complete the PR template entirely.
-6. **Merge Requirements:** 
-   * Automated GitHub Actions (Lint & Theme Check) must pass.
+6. **Merge Requirements:** * Automated GitHub Actions (Lint & Theme Check) must pass.
    * Obtain at least one code review approval from another engineer.
