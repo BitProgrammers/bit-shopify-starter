@@ -12,14 +12,17 @@ A production-ready Shopify Online Store 2.0 starter theme optimized for high-per
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/BitProgrammers/bit-shopify-starter.git](https://github.com/BitProgrammers/bit-shopify-starter.git)
+   git clone https://github.com/BitProgrammers/bit-shopify-starter.git
+   ```
+2. **Navigate to the project directory:**
+   ```bash
    cd bit-shopify-starter
    ```
-2. **Install dependencies:**
+3. **Install dependencies:**
    ```bash
    npm install
    ```
-3. **Authenticate with Shopify:**
+4. **Authenticate with Shopify:**
    ```bash
    shopify auth login
    ```
