@@ -51,7 +51,7 @@ A production-ready Shopify Online Store 2.0 starter theme optimized for high-per
 ├── CHANGELOG.md         # Version history of the project
 ├── LICENSE.md           # Project license information
 ├── package.json         # Project scripts and development dependencies
-├── README.md            # Main project documentation
+├── README.md            # Main documentation
 └── release-notes.md     # Release summary notes
 ```
 
